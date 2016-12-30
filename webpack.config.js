@@ -1,4 +1,5 @@
 var path = require("path");
+var statsPath = process.argv[3].slice(1);
 module.exports = {
 	cache: true,
 	entry: "./app/entry.js",
@@ -17,6 +18,11 @@ module.exports = {
 			{ test: /\.css$/,  loader: "style-loader!css-loader" },
 			{ test: /\.png$/,  loader: "url-loader?limit=5000&minetype=image/png" }
 		]
+	},
+	resolve:{
+		alias: {
+			stats: statsPath
+		}
 	},
   node: {
     fs: "empty"

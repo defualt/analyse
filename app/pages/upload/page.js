@@ -9,12 +9,13 @@ module.exports = function() {
 	$("#example").click(loadFromExample);
 
 	function loadFromExample() {
-		require(["./example.json"], function(example) {
+		require(["stats"], function(example) {
 			app.load(example);
 			$(".modal").modal("hide");
 			app.loadPage.apply(app, nextPage);
 		});
 	}
+	loadFromExample();
 
 	function loadFromFile() {
 		var files = $("#file")[0].files;
